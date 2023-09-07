@@ -39,14 +39,7 @@ import AddCard from "./AddCard";
 function App() {
   return (
     <div className="app-routes">
-      <Switch>
-        <Route path="/">
-          <Layout />
-        </Route>
-        <Route path="">
-          <AddCard/>
-        </Route>
-      </Switch>
+      <Layout/>
     </div>
   );
 }
