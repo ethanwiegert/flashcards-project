@@ -4,6 +4,7 @@ import {deleteDeck, listDecks} from "../utils/api"
 
 
 function DecksList(){
+  const history=useHistory()
 
 
 const [decks, setDecks] = useState([]);
@@ -25,17 +26,14 @@ useEffect(() => {
 }, []);
 
 
-  const handleDeckDelete = async (id) => {
-    if (window.confirm("Are you sure you want to delete this deck?")) {
-     try {
-       await deleteDeck(id);
-       loadDecks();
-     } catch (error) {
-       console.log(error);
-     }
-     window.location.reload();
-   }
- };
+const handleDeckDelete = async (event) => {
+  if (
+    window.confirm("Are you sure you want to delete this deck?")
+  ) {
+    await deleteDeck(event);
+    history.go(0);
+  }
+};
 
 
   return (
@@ -45,12 +43,13 @@ useEffect(() => {
       {decks.map((deck) => (
        
         <li key={deck.id}>
-          <button type="button" onClick={() => setDecks(deck)}>
+          <h5>
             {deck.name}
-          </button>
-          <button>View</button>
+          </h5>
+          <p>{deck.description}</p>
+          <button >View</button>
           <button>Study</button>
-          <button>Delete</button>
+          <button onClick={handleDeckDelete}>Delete</button>
         </li>
       ))}
     </ul>
