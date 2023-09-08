@@ -42,9 +42,9 @@ const handleCancel = (event) =>{
 return(
     <form onSubmit={handleSubmit}>
         <label>Name</label>
-        <input id="name" name="name" value={name} onChange={handleChange} type="text"></input>
+        <input id="name" name="name" value={newDeck.name} onChange={handleChange} type="text"/>
         <label>Description</label>
-        <textarea id="description" name="description" value={description} onChange={handleChange} type="text"></textarea>
+        <textarea id="description" name="description" value={newDeck.description} onChange={handleChange} type="text"/>
         <button type="submit">Submit</button>
         <button onClick={handleCancel}>Cancel</button>
 

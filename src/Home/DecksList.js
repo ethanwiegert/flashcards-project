@@ -35,10 +35,15 @@ const handleDeckDelete = async (event) => {
   }
 };
 
+const handleCreate = (event) =>{
+  event.preventDefault();
+  history.push("/decks/new");
+}
+
 
   return (
     <div>
-  <button>Create Deck</button>
+  <button onClick={handleCreate}>Create Deck</button>
     <ul className="deck-list">
       {decks.map((deck) => (
        
