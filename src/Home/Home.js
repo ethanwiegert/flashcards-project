@@ -12,12 +12,12 @@ useEffect(()=>{
     
     listDecks();
     return () => {
-    controller.abort();
+    signal.abort();
      }
   }, []);
 
   return(
-    <DecksList decks={decks} setDecks={setDecks}/>
+    <DecksList />
   )
 
 }
