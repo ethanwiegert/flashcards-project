@@ -23,10 +23,10 @@ const handleChange = ({target})=>{
     }
 
 
-const handleSubmit = (event) =>{
+async function handleSubmit (event) {
     event.preventDefault();
         const abortController = new AbortController();
-        createDeck(newDeck, abortController.signal);
+        await createDeck(newDeck, abortController.signal);
         history.push("/");
 }
 
