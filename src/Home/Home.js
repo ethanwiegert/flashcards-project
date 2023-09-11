@@ -3,18 +3,7 @@ import DecksList from "./DecksList";
 import {listDecks} from ".././utils/api"
 
 function Home(){
-const [decks, setDecks] = useState([]);
-useEffect(()=>{
-    setDecks([]);
-    const controller = new AbortController();
-    const signal = controller.signal;
-  
-    
-    listDecks();
-    return () => {
-    signal.abort();
-     }
-  }, []);
+
 
   return(
     <DecksList />
