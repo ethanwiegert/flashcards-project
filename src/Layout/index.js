@@ -4,6 +4,7 @@ import Header from "./Header";
 import NotFound from "./NotFound";
 import Home from "../Home/Home";
 import CreateDeck from "../Home/CreateDeck";
+import ViewDeck from "../Deck/ViewDeck"
 
 function Layout() {
   return (
@@ -17,6 +18,9 @@ function Layout() {
         </Route>
         <Route path="/decks/new">
           <CreateDeck/>
+        </Route>
+        <Route path="/decks/:deckId">
+          <ViewDeck/>
         </Route>
         <Route>
         <NotFound />
