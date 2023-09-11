@@ -4,7 +4,8 @@ import Header from "./Header";
 import NotFound from "./NotFound";
 import Home from "../Home/Home";
 import CreateDeck from "../Home/CreateDeck";
-import ViewDeck from "../Deck/ViewDeck"
+import ViewDeck from "../Deck/ViewDeck";
+import AddCard from "../Cards/AddCard"
 
 function Layout() {
   return (
@@ -21,6 +22,9 @@ function Layout() {
         </Route>
         <Route path="/decks/:deckId">
           <ViewDeck/>
+        </Route>
+        <Route path="/decks/:deckId/cards/new">
+          <AddCard/>
         </Route>
         <Route>
         <NotFound />

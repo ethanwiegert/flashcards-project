@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react"
 import {Link, useHistory, useParams} from "react-router-dom"
-import {readDeck, deleteDeck} from "../utils/api"
+import {readDeck, deleteDeck, deleteCard} from "../utils/api"
 
 
 function ViewDeck(){
@@ -41,6 +41,15 @@ const handleDeckDelete = async (event) => {
   }
 };
 
+const handleCardDelete = async (event) => {
+  if (
+    window.confirm("Are you sure you want to delete this card?")
+  ) {
+    await deleteCard(event);
+    history.go(0);
+  }
+};
+
 
 
   return (
@@ -75,7 +84,7 @@ const handleDeckDelete = async (event) => {
                                     <div className="row">
                                         <div className="col-auto">
                                             <Link to={`/decks/${deckId}/cards/${card.id}/edit`}><button>Edit</button></Link>
-                                            <button>Delete</button>
+                                            <button onClick={handleCardDelete}>Delete</button>
                                         </div>
                                     </div>
                                 </div>
