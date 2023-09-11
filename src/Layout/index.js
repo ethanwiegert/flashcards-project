@@ -5,7 +5,7 @@ import NotFound from "./NotFound";
 import Home from "../Home/Home";
 import CreateDeck from "../Home/CreateDeck";
 import ViewDeck from "../Deck/ViewDeck";
-import AddCard from "../Cards/AddCard"
+import AddCard from "../Cards/AddCard";
 
 function Layout() {
   return (

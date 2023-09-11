@@ -1,10 +1,11 @@
 import React from "react";
 import {useState} from "react"
-import {Link, useHistory} from "react-router-dom"
+import {Link, useHistory, useParams} from "react-router-dom"
 import {readDeck} from "../utils/api"
 
 function AddCard(){
 const history=useHistory()
+const {deckId}=useParams()
 
 let initialState={
     front:"",
@@ -12,6 +13,7 @@ let initialState={
 }
 
 const [newCard, setNewCard]=useState(initialState)
+const [cards, setCards]=useState([])
 //handleChange, handleSubmit, handleCancel
 
 const handleChange = ({target})=>{
@@ -23,12 +25,14 @@ const handleChange = ({target})=>{
     }
 
 
-async function handleSubmit (event) {
-    event.preventDefault();
+    async function handleSubmit (event) {
+        event.preventDefault();
         const abortController = new AbortController();
-        await readDeck(newCard, abortController.signal);
-        history.push("/");
-}
+        const response = await readDeck(deckId, abortController.signal);
+        setCards(response.cards);
+        cards.push(newCard);
+    }
+
 
 const handleCancel = (event) =>{
     event.preventDefault();
