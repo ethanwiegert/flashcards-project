@@ -42,6 +42,8 @@ const handleCreate = (event) =>{
 }
 
 
+
+
   return (
     <div>
   <button onClick={handleCreate}>Create Deck</button>
@@ -53,7 +55,7 @@ const handleCreate = (event) =>{
             {deck.name}
           </h5>
           <p>{deck.description}</p>
-          <button >View</button>
+          <Link to={`/decks/${deck.id}`}>View</Link>
           <button>Study</button>
           <button onClick={handleDeckDelete}>Delete</button>
         </li>

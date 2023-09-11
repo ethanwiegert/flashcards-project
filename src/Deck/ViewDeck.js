@@ -10,8 +10,9 @@ function ViewDeck(){
 
 
 const [deck, setDeck] = useState([]);
+const [cards, setCards]=useState([])
 
-const {cards}=deck;
+
 
 useEffect(() => {
   async function displayDeck() {
@@ -19,6 +20,7 @@ useEffect(() => {
     try {
       const response = await readDeck(deckId, abortController.signal);
       setDeck(response);
+      setCards(response.cards);
     } catch (e) {
       console.log(e.name);
     }
@@ -58,17 +60,31 @@ const handleDeckDelete = async (event) => {
         </ul>
         <ul className="cards-list">
         
-        {deck.cards.map((card)=>(
-            <li>
-                <p>{card.front}</p>
-                <p>{card.back}</p>
-            </li>
-        ))}
-       
+         
+{ cards.map(card => (
+                            <li key={card.id}>
+                                <div className="list-group-item">
+                                    <div className="row">
+                                        <div className="col-auto mr-auto">
+                                            <p>{card.front}</p>
+                                        </div>
+                                        <div className="col-auto">
+                                            <p>{card.back}</p>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-auto">
+                                            <Link to={`/decks/${deckId}/cards/${card.id}/edit`}><button>Edit</button></Link>
+                                            <button>Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                </li>
+))}
     </ul>
-    
-    </div>
+     </div>
   );
 }
+
 
 export default ViewDeck
