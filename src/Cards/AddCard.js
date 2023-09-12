@@ -14,7 +14,7 @@ let initialState={
 
 const [newCard, setNewCard]=useState(initialState)
 const [cards, setCards]=useState([])
-//handleChange, handleSubmit, handleCancel
+
 
 const handleChange = ({target})=>{
     setNewCard({
