@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useRouteMatch } from "react-router-dom";
 import Header from "./Header";
 import NotFound from "./NotFound";
 import Home from "../Home/Home";
@@ -8,6 +8,7 @@ import ViewDeck from "../Deck/ViewDeck";
 import AddCard from "../Cards/AddCard";
 
 function Layout() {
+  const {url}=useRouteMatch()
   return (
     <>
       <Header />
@@ -20,7 +21,7 @@ function Layout() {
         <Route path="/decks/new">
           <CreateDeck/>
         </Route>
-        <Route path="/decks/:deckId">
+        <Route exact path="/decks/:deckId">
           <ViewDeck/>
         </Route>
         <Route path="/decks/:deckId/cards/new">

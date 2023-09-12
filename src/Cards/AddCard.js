@@ -1,7 +1,7 @@
 import React from "react";
 import {useState} from "react"
 import {Link, useHistory, useParams} from "react-router-dom"
-import {readDeck} from "../utils/api"
+import {readDeck, createCard} from "../utils/api"
 
 function AddCard(){
 const history=useHistory()
@@ -14,6 +14,7 @@ let initialState={
 
 const [newCard, setNewCard]=useState(initialState)
 const [cards, setCards]=useState([])
+const [deck, setDeck]=useState([])
 
 
 const handleChange = ({target})=>{
@@ -30,7 +31,8 @@ const handleChange = ({target})=>{
         const abortController = new AbortController();
         const response = await readDeck(deckId, abortController.signal);
         setCards(response.cards);
-        cards.push(newCard);
+        await createCard(deckId, newCard);
+        history.push((`/decks/deckId`))
     }
 
 
