@@ -1,25 +1,25 @@
 import React from "react";
 import {useState} from "react"
 import {Link, useHistory, useParams} from "react-router-dom"
-import {readDeck, createCard} from "../utils/api"
+import {readDeck, updateCard} from "../utils/api"
 
-function AddCard(){
+function EditCard(){
 const history=useHistory()
-const {deckId}=useParams()
+const { deckId, cardId } = useParams();
 
 let initialState={
     front:"",
     back:""
 }
 
-const [newCard, setNewCard]=useState(initialState)
+const [card, setCard]=useState(initialState)
 const [cards, setCards]=useState([])
 const [deck, setDeck]=useState([])
 
 
 const handleChange = ({target})=>{
-    setNewCard({
-        ...newCard,
+    setCard({
+        ...card,
         [target.name]: target.value,
     })
 
@@ -30,11 +30,14 @@ const handleChange = ({target})=>{
         event.preventDefault();
         const abortController = new AbortController();
         const response = await readDeck(deckId, abortController.signal);
-        setDeck(response);
+        
         setCards(response.cards);
-        await createCard(deckId, newCard);
+        const updatedCard=cards.find((card)=>card.id===cardId)
+        await updateCard(updatedCard);
         history.go(-1)
     }
+
+   
 
 
 const handleCancel = (event) =>{
@@ -48,12 +51,12 @@ const handleCancel = (event) =>{
 
 return(
     <div>
-    <h6>{deck.name}: Add Card</h6>
+    <h5>Edit Card</h5>
     <form onSubmit={handleSubmit}>
         <label>Front</label>
-        <textarea id="front" name="front" value={newCard.front} onChange={handleChange} type="text"/>
+        <textarea id="front" name="front" value={card.front} onChange={handleChange} type="text" default={`${updatedCard.front}`}/>
         <label>Back</label>
-        <textarea id="back" name="back" value={newCard.back} onChange={handleChange} type="text"/>
+        <textarea id="back" name="back" value={card.back} onChange={handleChange} type="text" default={`${updatedCard.back}`}/>
         <button type="submit">Save</button>
         <button onClick={handleCancel}>Done</button>
 
@@ -63,4 +66,4 @@ return(
 
 }
 
-export default AddCard
+export default EditCard

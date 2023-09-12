@@ -59,6 +59,12 @@
       "back": "This is a Test",
       "deckId": 3,
       "id": 8
+    },
+    {
+      "front": "Second Test Card",
+      "back": "Testing History",
+      "deckId": 3,
+      "id": 9
     }
   ]
 }
