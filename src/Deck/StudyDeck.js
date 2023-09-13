@@ -26,18 +26,27 @@ function StudyDeck(){
             abortController.abort();
           };
         }
-        loadDeck();
+        loadDeck(deckId);
       }, []);
 
-
+if (cards.length<3){
       return (
         <div>
           <h5>Home/{deck.name}/Study</h5>
-          <p></p>
-          <buton></buton>
+          <p>Not Enough Cards</p>
+          <p>You need at least 3 cards to study.  There are 2 cards in this deck.</p>
+          <Link to={`/decks/${deckId}/cards/$new`}><button>Add Cards</button></Link>
         </div>
+      )}
+     else{
+      return(
+        <div>
+        <h5>Home/{deck.name}/Study</h5>
+        <p>You need at least 3 cards to study.  There are 2 cards in this deck.</p>
+        <button>Flip</button>
+      </div>
       )
-     
+     }
 }
 
 export default StudyDeck
