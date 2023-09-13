@@ -49,7 +49,7 @@ function StudyDeck(){
         setIsItFlipped((prevState) => !prevState);
       }
 
-      if (deck.cards.length<3){
+      if (deck.cards.length <= 2){
         return (
           <div>
             <h5>Home/{deck.name}/Study</h5>
