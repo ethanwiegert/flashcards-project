@@ -8,6 +8,7 @@ import ViewDeck from "../Deck/ViewDeck";
 import AddCard from "../Cards/AddCard";
 import EditCard from "../Cards/EditCard";
 import EditDeck from "../Deck/EditDeck";
+import StudyDeck from "../Deck/StudyDeck";
 
 function Layout() {
   const {url}=useRouteMatch()
@@ -28,6 +29,9 @@ function Layout() {
         </Route>
         <Route exact path="/decks/:deckId">
           <ViewDeck/>
+        </Route>
+        <Route path="/decks/:deckId/study">
+          <StudyDeck/>
         </Route>
         <Route path="/decks/:deckId/cards/new">
           <AddCard/>

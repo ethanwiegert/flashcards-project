@@ -56,7 +56,7 @@ const handleCreate = (event) =>{
           </h5>
           <p>{deck.description}</p>
           <Link to={`/decks/${deck.id}`}>View</Link>
-          <button>Study</button>
+          <Link to={`/decks/${deck.id}/study`}><button>Study</button></Link>
           <button onClick={handleDeckDelete}>Delete</button>
         </li>
       ))}
