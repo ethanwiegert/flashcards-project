@@ -9,6 +9,8 @@ function StudyDeck(){
 
     const [deck, setDeck]=useState([])
 
+    const [cards, setCards]=useState([])
+
 
     useEffect(() => {
         async function loadDeck() {
@@ -16,6 +18,7 @@ function StudyDeck(){
           try {
             const response = await readDeck(deckId, abortController.signal);
             setDeck(response);
+            setCards(response.cards);
           } catch (e) {
             console.log(e.name);
           }
