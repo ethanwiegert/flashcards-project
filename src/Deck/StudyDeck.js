@@ -23,8 +23,8 @@ function StudyDeck(){
             abortController.abort();
           };
         }
-        loadDeck(deckId);
-      }, []);
+        loadDeck();
+      }, [deckId]);
 
       function GetTheNextCard() {
         //if no more cards in the deck, window.confirm
@@ -48,7 +48,7 @@ function StudyDeck(){
       function clickToFlipCard() {
         setIsItFlipped((prevState) => !prevState);
       }
-      
+
       if (deck.cards.length<3){
         return (
           <div>
