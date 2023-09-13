@@ -1,7 +1,7 @@
 import React from "react";
 import {useState, useEffect} from "react"
 import {Link, useHistory, useParams} from "react-router-dom"
-import {readDeck, updateCard} from "../utils/api"
+import {readDeck, readCard, updateCard} from "../utils/api"
 
 function EditCard(){
 const history=useHistory()
@@ -35,6 +35,22 @@ useEffect(() => {
     loadDeck();
   }, []);
 
+  useEffect(() => {
+    async function loadCard() {
+      const abortController = new AbortController();
+      try {
+        const response = await readCard(cardId, abortController.signal);
+        setCard(response);
+      } catch (e) {
+        console.log(e.name);
+      }
+      return () => {
+        abortController.abort();
+      };
+    }
+    loadCard();
+  }, []);
+
 
 const handleChange = ({target})=>{
     setCard({
@@ -44,18 +60,11 @@ const handleChange = ({target})=>{
 
     }
 
-
     async function handleSubmit (event) {
-     //Abort controller for  API call
-     const abortController = new AbortController()
-
-     //use function passed from page
-    updateCard( event, abortController.signal);
-     setCards(card);
-     history.goBack();
-
-     //Abort controller
-     return () => abortController.abort();
+        event.preventDefault();
+            const abortController = new AbortController();
+            await updateCard(card, abortController.signal);
+            history.go(-1);
     }
 
    
@@ -75,9 +84,9 @@ return(
     <h5>Edit Card</h5>
     <form onSubmit={handleSubmit}>
         <label>Front</label>
-        <textarea id="front" name="front" value={card.front} onChange={handleChange} type="text" defaultValue="1"/>
+        <textarea id="front" name="front" value={card.front} onChange={handleChange} type="text" defaultValue={`${card.front}`}/>
         <label>Back</label>
-        <textarea id="back" name="back" value={card.back} onChange={handleChange} type="text" defaultValue="hello"/>
+        <textarea id="back" name="back" value={card.back} onChange={handleChange} type="text" defaultValue={`${card.back}`}/>
         <button type="submit">Save</button>
         <button onClick={handleCancel}>Done</button>
 
