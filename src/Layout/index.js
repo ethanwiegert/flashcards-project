@@ -7,6 +7,7 @@ import CreateDeck from "../Home/CreateDeck";
 import ViewDeck from "../Deck/ViewDeck";
 import AddCard from "../Cards/AddCard";
 import EditCard from "../Cards/EditCard";
+import EditDeck from "../Deck/EditDeck";
 
 function Layout() {
   const {url}=useRouteMatch()
@@ -21,6 +22,9 @@ function Layout() {
         </Route>
         <Route path="/decks/new">
           <CreateDeck/>
+        </Route>
+        <Route path="/decks/:deckId/edit">
+          <EditDeck/>
         </Route>
         <Route exact path="/decks/:deckId">
           <ViewDeck/>

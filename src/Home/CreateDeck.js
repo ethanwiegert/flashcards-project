@@ -40,6 +40,8 @@ const handleCancel = (event) =>{
 
 
 return(
+    <div>
+    <h5>Create Deck</h5>
     <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input id="name" name="name" value={newDeck.name} onChange={handleChange} type="text"/>
@@ -49,6 +51,7 @@ return(
         <button onClick={handleCancel}>Cancel</button>
 
     </form>
+    </div>
 )
 
 }
