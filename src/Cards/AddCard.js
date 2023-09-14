@@ -2,6 +2,7 @@ import React from "react";
 import {useState} from "react"
 import {Link, useHistory, useParams} from "react-router-dom"
 import {readDeck, createCard} from "../utils/api"
+import CardForm from "./CardForm";
 
 function AddCard(){
 const history=useHistory()
@@ -49,15 +50,7 @@ const handleCancel = (event) =>{
 return(
     <div>
     <h6>{deck.name}: Add Card</h6>
-    <form onSubmit={handleSubmit}>
-        <label>Front</label>
-        <textarea id="front" name="front" value={newCard.front} onChange={handleChange} type="text"/>
-        <label>Back</label>
-        <textarea id="back" name="back" value={newCard.back} onChange={handleChange} type="text"/>
-        <button type="submit">Save</button>
-        <button onClick={handleCancel}>Done</button>
-
-    </form>
+   <CardForm card={newCard} setCard={setNewCard}/>
     </div>
 )
 

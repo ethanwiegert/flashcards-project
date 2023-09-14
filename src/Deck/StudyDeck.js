@@ -9,10 +9,14 @@ function StudyDeck(){
   const [deck, setDeck] = useState({ name: "Loading...", cards: [] });
   const [isItFlipped, setIsItFlipped] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const abortController = new AbortController();
+  const [error, setError] = useState(undefined);
 
+ 
     useEffect(() => {
+      
         async function loadDeck() {
-          const abortController = new AbortController();
+          
           try {
             const response = await readDeck(deckId, abortController.signal);
             setDeck(response);
@@ -47,6 +51,10 @@ function StudyDeck(){
 
       function clickToFlipCard() {
         setIsItFlipped((prevState) => !prevState);
+      }
+
+      if (error) {
+        return error;
       }
 
       if (deck.cards.length <= 2){

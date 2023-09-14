@@ -1,9 +1,14 @@
 import React from "react";
 import {useState, useEffect} from "react"
 import {Link, useHistory, useParams} from "react-router-dom"
-import {readDeck, readCard, updateCard} from "../utils/api"
+import {readDeck, readCard, updateCard, createCard} from "../utils/api"
 
-function CardForm({setCard, card}){
+function CardForm({card, setCard}){
+const history=useHistory()
+const { deckId, cardId } = useParams();
+
+
+
 
 const handleChange = ({target})=>{
     setCard({
@@ -13,21 +18,16 @@ const handleChange = ({target})=>{
 
     }
 
+ 
     async function handleSubmit (event) {
-        if (card){
         event.preventDefault();
-            const abortController = new AbortController();
+        const abortController = new AbortController();
+        if(card) { 
             await updateCard(card, abortController.signal);
-            history.go(-1);}
-            else{
-                event.preventDefault();
-                const abortController = new AbortController();
-                const response = await readDeck(deckId, abortController.signal);
-                setDeck(response);
-                setCard(response.cards);
-                await createCard(deckId, card);
-                history.go(-1)
-            }
+            history.go(-1);} 
+          else { const response = await readDeck(deckId, abortController.signal);
+            await createCard(deckId, card);
+            history.go(-1)}
     }
 
    
@@ -44,7 +44,6 @@ const handleCancel = (event) =>{
 
 return(
     <div>
-    <h5>Edit Card</h5>
     <form onSubmit={handleSubmit}>
         <label>Front</label>
         <textarea id="front" name="front" value={card.front} onChange={handleChange} type="text" defaultValue={`${card.front}`}/>
