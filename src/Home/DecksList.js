@@ -46,7 +46,7 @@ const handleCreate = (event) =>{
 
   return (
     <div>
-  <button onClick={handleCreate}>Create Deck</button>
+  <button  onClick={handleCreate}>Create Deck</button>
     <ul className="deck-list">
       {decks.map((deck) => (
        

@@ -61,9 +61,9 @@ const handleCardDelete = async (event) => {
             {deck.name}
           </h5>
           <p>{deck.description}</p>
-          <Link to={`/decks/${deckId}/edit`}><button>Edit</button></Link>
-          <Link to={`/decks/${deck.id}/study`}><button>Study</button></Link>
-          <Link to={`/decks/${deckId}/cards/new`}><button>Add Card</button></Link>
+          <Link to={`/decks/${deck.id}/edit`}><button type="button" className="mr-1 btn btn-secondary">Edit</button></Link>
+                        <Link to={`/decks/${deck.id}/study`}><button type="button" className="m-1 btn btn-primary"> Study</button></Link>
+                        <Link to={`/decks/${deck.id}/cards/new`}><button type="button" className="m-1 btn btn-primary"> Add Card</button></Link>
           <button onClick={handleDeckDelete}>Delete</button>
         </li>
         </ul>

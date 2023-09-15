@@ -60,7 +60,9 @@ function StudyDeck(){
       if (deck.cards.length <= 2){
         return (
           <div>
-            <h5>Home/{deck.name}/Study</h5>
+            <a href="/">Home</a>
+            <a href={`/decks/${deckId}`}>{deck.name}</a>
+            <h5>Study</h5>
             <p>Not Enough Cards</p>
             <p>You need at least 3 cards to study.  There are 2 cards in this deck.</p>
             <Link to={`/decks/${deckId}/cards/$new`}><button>Add Cards</button></Link>
@@ -69,18 +71,24 @@ function StudyDeck(){
 else if (!isItFlipped){
       return (
         <div>
-          <h5>Home/{deck.name}/Study</h5>
+          <a href="/">Home</a>
+            <a href={`/decks/${deckId}`}>{deck.name}</a>
+            <h5>Study</h5>
+            <h5>Card {currentIndex +1} of {deck.cards.length}</h5>
           <p>{deck.cards[currentIndex].front}</p>
-          <button onClick={clickToFlipCard()}>Flip</button>
+          <button onClick={clickToFlipCard}>Flip</button>
         </div>
       )}
      else if (isItFlipped){
       return(
         <div>
-        <h5>Home/{deck.name}/Study</h5>
+        <a href="/">Home</a>
+            <a href={`/decks/${deckId}`}>{deck.name}</a>
+            <h5>Study</h5>
+            <h5>Card {currentIndex +1} of {deck.cards.length}</h5>
         <p>{deck.cards[currentIndex].back}</p>
-        <button onClick={clickToFlipCard()}>Flip</button>
-        <button onClick={GetTheNextCard()}>Next</button>
+        <button onClick={clickToFlipCard}>Flip</button>
+        <button onClick={GetTheNextCard}>Next</button>
       </div>
       )
      }

@@ -22,10 +22,10 @@ const handleChange = ({target})=>{
     async function handleSubmit (event) {
         event.preventDefault();
         const abortController = new AbortController();
-        if(card) { 
+        if(card.length) { 
             await updateCard(card, abortController.signal);
             history.go(-1);} 
-          else { const response = await readDeck(deckId, abortController.signal);
+          else { 
             await createCard(deckId, card);
             history.go(-1)}
     }

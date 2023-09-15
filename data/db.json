@@ -62,9 +62,15 @@
     },
     {
       "front": "Second Test Card Edit",
-      "back": "Testing Edit Card again",
+      "back": "Edited Back",
       "deckId": 3,
       "id": 9
+    },
+    {
+      "front": "new card",
+      "back": "added new card",
+      "deckId": 3,
+      "id": 10
     }
   ]
 }
