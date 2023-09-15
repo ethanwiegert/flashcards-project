@@ -46,21 +46,30 @@ const handleCreate = (event) =>{
 
   return (
     <div>
-  <button  onClick={handleCreate}>Create Deck</button>
-    <ul className="deck-list">
+  <button  onClick={handleCreate} type="button" className="btn btn-secondary">+ Create Deck</button>
+    <div className="deck-list">
       {decks.map((deck) => (
        
-        <li key={deck.id}>
-          <h5>
-            {deck.name}
-          </h5>
-          <p>{deck.description}</p>
-          <Link to={`/decks/${deck.id}`}>View</Link>
-          <Link to={`/decks/${deck.id}/study`}><button>Study</button></Link>
-          <button onClick={handleDeckDelete}>Delete</button>
-        </li>
+       <div class="card w-75">
+  <div class="card-body">
+    <div class="row card-title">
+    <h5 class="col-10">{deck.name}</h5>
+    <p class="justify-content-end">{decks.length} Cards</p>
+    </div>
+    <div>
+    <p class="card-text">{deck.description}</p>
+    </div>
+    <div class="row">
+    <Link to={`/decks/${deck.id}`}><button type="button" class="btn btn-secondary">View</button></Link>
+          <Link to={`/decks/${deck.id}/study`}><button type="button" class="btn btn-primary">Study</button></Link>
+          <button type="button" class="btn btn-danger" onClick={handleDeckDelete}>Delete</button>
+    </div>
+  </div>
+</div>
+
+
       ))}
-    </ul>
+    </div>
     </div>
   );
 }
