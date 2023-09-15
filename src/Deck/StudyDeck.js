@@ -95,14 +95,27 @@ else if (!isItFlipped){
      else if (isItFlipped){
       return(
         <div>
-        <a href="/">Home</a>
-            <a href={`/decks/${deckId}`}>{deck.name}</a>
-            <h5>Study</h5>
+         <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="{`/decks/${deckId}`}">{deck.name}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Study</li>
+  </ol>
+</nav>
+            <h2>Study: {deck.name}</h2>
+            
+            <div className="card">
+           <div class="card-body">
             <h5>Card {currentIndex +1} of {deck.cards.length}</h5>
-        <p>{deck.cards[currentIndex].back}</p>
-        <button onClick={clickToFlipCard}>Flip</button>
-        <button onClick={GetTheNextCard}>Next</button>
-      </div>
+          <p>{deck.cards[currentIndex].back}</p>
+          
+          
+          <button onClick={clickToFlipCard} type="button" className="btn btn-secondary">Flip</button>
+<button onClick={GetTheNextCard} type="button" className="btn btn-primary ml-2">Next</button>
+          </div>
+
+          </div>
+        </div>
       )
      }
 }
