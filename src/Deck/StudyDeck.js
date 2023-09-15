@@ -60,12 +60,17 @@ function StudyDeck(){
       if (deck.cards.length <= 2){
         return (
           <div>
-            <a href="/">Home</a>
-            <a href={`/decks/${deckId}`}>{deck.name}</a>
-            <h5>Study</h5>
-            <p>Not Enough Cards</p>
+          <nav aria-label="breadcrumb">
+   <ol class="breadcrumb">
+     <li class="breadcrumb-item"><a href="/">Home</a></li>
+     <li class="breadcrumb-item"><a href="{`/decks/${deckId}`}">{deck.name}</a></li>
+     <li class="breadcrumb-item active" aria-current="page">Study</li>
+   </ol>
+ </nav>
+ <h2>Study: {deck.name}</h2>
+            <h4>Not Enough Cards</h4>
             <p>You need at least 3 cards to study.  There are 2 cards in this deck.</p>
-            <Link to={`/decks/${deckId}/cards/$new`}><button>Add Cards</button></Link>
+            <Link to={`/decks/${deckId}/cards/new`}><button type="button" className="btn btn-primary">+ Add Cards</button></Link>
           </div>
         )}
 else if (!isItFlipped){
