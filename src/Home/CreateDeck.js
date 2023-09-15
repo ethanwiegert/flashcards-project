@@ -41,14 +41,22 @@ const handleCancel = (event) =>{
 
 return(
     <div>
-    <h5>Create Deck</h5>
+    <nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/">Home</a></li>
+
+<li class="breadcrumb-item active" aria-current="page">Create Deck</li>
+</ol>
+</nav>
+    <h2>Create Deck</h2>
     <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input id="name" name="name" value={newDeck.name} onChange={handleChange} type="text"/>
-        <label>Description</label>
-        <textarea id="description" name="description" value={newDeck.description} onChange={handleChange} type="text"/>
-        <button type="submit">Submit</button>
-        <button onClick={handleCancel}>Cancel</button>
+        <label className="form-label">Name</label>
+        <input placeholder="Deck Name" className="form-control" id="name" name="name" value={newDeck.name} onChange={handleChange} type="text"/>
+        <label className="form-label mt-3">Description</label>
+        <textarea rows="4" placeholder="Brief description of the deck" className="form-control" id="description" name="description" value={newDeck.description} onChange={handleChange} type="text"/>
+        <button type="button" className="btn btn-secondary" onClick={handleCancel}>Cancel</button>
+        <button type="button" className="btn btn-primary m-2">Submit</button>
+        
 
     </form>
     </div>
