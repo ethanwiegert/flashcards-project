@@ -46,24 +46,29 @@ const handleCreate = (event) =>{
 
   return (
     <div className="pb-5">
+
+      <div className="pb-3">
   <button  onClick={handleCreate} type="button" className="btn btn-secondary">+ Create Deck</button>
+  </div>
+
     <div className="deck-list">
       {decks.map((deck) => (
        
-       <div class="card w-75">
-  <div class="card-body">
-    <div class="row card-title">
-    <h5 class="col-10">{deck.name}</h5>
-    <p class="justify-content-end">{decks.length} Cards</p>
+       <div className="card w-75">
+  <div className="card-body">
+    <div className="row card-text">
+    <h5 className="col-10">{deck.name}</h5>
+    <p className="col-2">{decks.length} Cards</p>
     </div>
-    <div>
-    <p class="card-text">{deck.description}</p>
+    <div className="row d-flex">
+    <p className="card-text col-12">{deck.description}</p>
     </div>
-    <div class="row">
-    <Link to={`/decks/${deck.id}`}><button type="button" class="btn btn-secondary">View</button></Link>
-          <Link to={`/decks/${deck.id}/study`}><button type="button" class="btn btn-primary">Study</button></Link>
-          <button type="button" class="btn btn-danger" onClick={handleDeckDelete}>Delete</button>
+    <div className="row pt-3 d-flex flex-row">
+  <div className="col-1"><Link to={`/decks/${deck.id}`}><button type="button" className="btn btn-secondary flex-row">View</button></Link></div>
+  <div className="col-9"><Link to={`/decks/${deck.id}/study`}><button type="button" className="btn btn-primary d-flex flex-row">Study</button></Link></div>
+  <div className="col-2"><button type="button" className="btn btn-danger d-flex justify-content-end" onClick={handleDeckDelete}>Delete</button>
     </div>
+</div>
   </div>
 </div>
 
