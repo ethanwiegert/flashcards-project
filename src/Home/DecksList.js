@@ -31,7 +31,7 @@ const handleDeckDelete = async (event) => {
   if (
     window.confirm("Are you sure you want to delete this deck?")
   ) {
-    await deleteDeck(event);
+    await deleteDeck(deckId, event);
     history.go(0);
   }
 };
