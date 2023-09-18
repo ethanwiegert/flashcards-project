@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react"
 import {Link, useHistory} from "react-router-dom"
 import {deleteDeck, listDecks, readDeck} from "../utils/api"
+import CardsNumber from "./CardsNumber"
 
 
 function DecksList(){
@@ -27,18 +28,7 @@ useEffect(() => {
   loadDecks();
 }, []);
 
-useEffect(() => {
-  const abortController = new AbortController();
 
-  async function displayDeck(deckId) {
-      const response = await readDeck(deckId, abortController.signal);
-      setCards(response);
-  }
-      
-      displayDeck();
-          return () => abortController.abort();
-        },[deckId]);
-      
 
 
 const handleDeckDelete = async (deckId) => {
@@ -72,7 +62,7 @@ const handleCreate = (event) =>{
   <div className="card-body">
     <div className="row card-text">
     <h5 className="col-10">{deck.name}</h5>
-    <p className="col-2">{cards.length} Cards</p>
+    <p className="col-2"><CardsNumber deckId={deck.id}/></p>
     </div>
     <div className="row d-flex">
     <p className="card-text col-12">{deck.description}</p>
