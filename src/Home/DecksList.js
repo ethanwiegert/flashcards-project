@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react"
 import {Link, useHistory} from "react-router-dom"
-import {deleteDeck, listDecks, readDeck} from "../utils/api"
+import {deleteDeck, listDecks} from "../utils/api"
 import CardsNumber from "./CardsNumber"
 
 
@@ -10,7 +10,6 @@ function DecksList(){
 
 
 const [decks, setDecks] = useState([]);
-const [cards, setCards] = useState([]);
 
 useEffect(() => {
   async function loadDecks() {
