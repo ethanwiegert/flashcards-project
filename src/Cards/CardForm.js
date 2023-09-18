@@ -3,7 +3,7 @@ import {useState, useEffect} from "react"
 import {Link, useHistory, useParams} from "react-router-dom"
 import {readDeck, readCard, updateCard, createCard} from "../utils/api"
 
-function CardForm({card, setCard}){
+function CardForm({card, setCard}, frontPlaceholder, backPlaceholder){
 const history=useHistory()
 const { deckId, cardId } = useParams();
 
@@ -38,19 +38,7 @@ const handleCancel = (event) =>{
     history.go(-1);
 }
 
-function frontPlaceholder(){
-    if(card.front===""){
-        return `${card.front}`
-    }
-    else{return "Front side of card"}
-}
 
-function backPlaceholder(){
-    if(card.back===""){
-        return "Back side of card"
-    }
-    else{return `${card.back}`}
-}
 
 
 

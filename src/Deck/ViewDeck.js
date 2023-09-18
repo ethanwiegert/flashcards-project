@@ -66,7 +66,7 @@ const handleCardDelete = async (cardId) => {
             {deck.name}
           </h5>
           <p>{deck.description}</p>
-          <div class="row d-flex flex-row">
+          <div class="row d-flex flex-row pb-4">
           <Link to={`/decks/${deck.id}/edit`}><button type="button" className="ml-2 btn btn-secondary">Edit</button></Link>
                         <Link to={`/decks/${deck.id}/study`}><button type="button" className="ml-2 btn btn-primary"> Study</button></Link>
                         <Link to={`/decks/${deck.id}/cards/new`}><button type="button" className="ml-2 btn btn-primary">+ Add Cards</button></Link>
@@ -76,24 +76,24 @@ const handleCardDelete = async (cardId) => {
         
          
 { cards.map(card => (
-                            <li key={card.id}>
+                            <div key={card.id} className="card w-75">
                                 <div className="list-group-item">
                                     <div className="row">
-                                        <div className="col-auto mr-auto">
+                                        <div className="col-6 mr-auto">
                                             <p>{card.front}</p>
                                         </div>
-                                        <div className="col-auto">
+                                        <div className="col-6">
                                             <p>{card.back}</p>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row d-flex flex-row-reverse">
                                         <div className="col-auto">
-                                            <Link to={`/decks/${deckId}/cards/${card.id}/edit`}><button>Edit</button></Link>
-                                            <button onClick={()=>handleCardDelete(card.id)}>Delete</button>
+                                            <Link to={`/decks/${deckId}/cards/${card.id}/edit`}><button type="button" className="btn btn-secondary">Edit</button></Link>
+                                            <button onClick={()=>handleCardDelete(card.id)} type="button" className="btn btn-danger m-2">Delete</button>
                                         </div>
                                     </div>
                                 </div>
-                                </li>
+                                </div>
 ))}
     
      </div>

@@ -61,8 +61,8 @@ const handleCancel = (event) =>{
 }
 
 
-
-
+const frontPlaceholder="Front side of card"
+const backPlaceholder="Front side of card"
 
 return(
     <div>
@@ -74,7 +74,7 @@ return(
 </ol>
 </nav>
     <h4>{deck.name}: Add Card</h4>
-   <CardForm card={newCard} setCard={setNewCard}/>
+   <CardForm card={newCard} setCard={setNewCard} frontPlaceholder={frontPlaceholder} backPlaceholder={backPlaceholder}/>
     </div>
 )
 

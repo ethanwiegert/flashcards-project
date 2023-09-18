@@ -78,12 +78,14 @@ const handleCancel = (event) =>{
 
 
 
+const frontPlaceholder=`${card.front}`
+const backPlaceholder=`${card.front}`
 
 
 return(
     <div>
     <h5>Edit Card</h5>
-    <CardForm card={card} setCard={setCard}/>
+    <CardForm card={card} setCard={setCard} frontPlaceholder={frontPlaceholder} backPlaceholder={backPlaceholder}/>
     </div>
 )
 
