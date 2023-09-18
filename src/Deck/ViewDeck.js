@@ -54,20 +54,25 @@ const handleCardDelete = async (cardId) => {
 
   return (
     <div>
-  <h6>Home/{deck.name}</h6>
-    <ul className="deck">
-        <li key={deck.id}>
+      <nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/">Home</a></li>
+<li class="breadcrumb-item active" aria-current="page">{deck.name}</li>
+</ol>
+</nav>
+    
+       
           <h5>
             {deck.name}
           </h5>
           <p>{deck.description}</p>
-          <Link to={`/decks/${deck.id}/edit`}><button type="button" className="mr-1 btn btn-secondary">Edit</button></Link>
-                        <Link to={`/decks/${deck.id}/study`}><button type="button" className="m-1 btn btn-primary"> Study</button></Link>
-                        <Link to={`/decks/${deck.id}/cards/new`}><button type="button" className="m-1 btn btn-primary"> Add Card</button></Link>
-          <button onClick={()=>handleDeckDelete(deck.id)}>Delete</button>
-        </li>
-        </ul>
-        <ul className="cards-list">
+          <div class="row d-flex flex-row">
+          <Link to={`/decks/${deck.id}/edit`}><button type="button" className="ml-2 btn btn-secondary">Edit</button></Link>
+                        <Link to={`/decks/${deck.id}/study`}><button type="button" className="ml-2 btn btn-primary"> Study</button></Link>
+                        <Link to={`/decks/${deck.id}/cards/new`}><button type="button" className="ml-2 btn btn-primary">+ Add Cards</button></Link>
+          <button onClick={()=>handleDeckDelete(deck.id)} type="button" className="ml-3 btn btn-danger d-flex justify-content-end" >Delete</button>
+          </div>
+       
         
          
 { cards.map(card => (
@@ -90,7 +95,7 @@ const handleCardDelete = async (cardId) => {
                                 </div>
                                 </li>
 ))}
-    </ul>
+    
      </div>
   );
 }

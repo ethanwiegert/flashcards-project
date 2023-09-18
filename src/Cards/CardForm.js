@@ -60,12 +60,13 @@ function backPlaceholder(){
 return(
     <div>
     <form onSubmit={handleSubmit}>
-        <label>Front</label>
-        <textarea id="front" name="front" value={card.front} onChange={handleChange} type="text" placeholder={frontPlaceholder}/>
-        <label>Back</label>
-        <textarea id="back" name="back" value={card.back} onChange={handleChange} type="text" placeholder={backPlaceholder}/>
-        <button type="submit">Save</button>
-        <button onClick={handleCancel}>Done</button>
+        <label className="form-label">Front</label>
+        <textarea id="front" name="front" value={card.front} onChange={handleChange} type="text" placeholder={frontPlaceholder} className="form-control"/>
+        <label className="form-label">Back</label>
+        <textarea id="back" name="back" value={card.back} onChange={handleChange} type="text" placeholder={backPlaceholder} className="form-control"/>
+        <button onClick={handleCancel} type="button" className="btn btn-secondary">Done</button>
+        <button type="submit button" className="btn btn-primary ml-2">Save</button>
+        
 
     </form>
     </div>
