@@ -38,6 +38,21 @@ const handleCancel = (event) =>{
     history.go(-1);
 }
 
+function frontPlaceholder(){
+    if(card.front===""){
+        return `${card.front}`
+    }
+    else{return "Front side of card"}
+}
+
+function backPlaceholder(){
+    if(card.back===""){
+        return "Back side of card"
+    }
+    else{return `${card.back}`}
+}
+
+
 
 
 
@@ -46,9 +61,9 @@ return(
     <div>
     <form onSubmit={handleSubmit}>
         <label>Front</label>
-        <textarea id="front" name="front" value={card.front} onChange={handleChange} type="text" defaultValue={`${card.front}`}/>
+        <textarea id="front" name="front" value={card.front} onChange={handleChange} type="text" placeholder={frontPlaceholder}/>
         <label>Back</label>
-        <textarea id="back" name="back" value={card.back} onChange={handleChange} type="text" defaultValue={`${card.back}`}/>
+        <textarea id="back" name="back" value={card.back} onChange={handleChange} type="text" placeholder={backPlaceholder}/>
         <button type="submit">Save</button>
         <button onClick={handleCancel}>Done</button>
 
