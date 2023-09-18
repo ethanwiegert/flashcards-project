@@ -29,23 +29,23 @@ useEffect(() => {
     };
   }
   displayDeck();
-}, []);
+}, [deckId]);
 
 
-const handleDeckDelete = async (event) => {
+const handleDeckDelete = async (deckId) => {
   if (
     window.confirm("Are you sure you want to delete this deck?")
   ) {
-    await deleteDeck(event);
+    await deleteDeck(deckId);
     history.go(0);
   }
 };
 
-const handleCardDelete = async (event) => {
+const handleCardDelete = async (cardId) => {
   if (
-    window.confirm("Are you sure you want to delete this card?")
+    window.confirm("Delete this card?  You will not be able to recover it.")
   ) {
-    await deleteCard(event);
+    await deleteCard(cardId);
     history.go(0);
   }
 };
@@ -64,7 +64,7 @@ const handleCardDelete = async (event) => {
           <Link to={`/decks/${deck.id}/edit`}><button type="button" className="mr-1 btn btn-secondary">Edit</button></Link>
                         <Link to={`/decks/${deck.id}/study`}><button type="button" className="m-1 btn btn-primary"> Study</button></Link>
                         <Link to={`/decks/${deck.id}/cards/new`}><button type="button" className="m-1 btn btn-primary"> Add Card</button></Link>
-          <button onClick={handleDeckDelete}>Delete</button>
+          <button onClick={()=>handleDeckDelete(deck.id)}>Delete</button>
         </li>
         </ul>
         <ul className="cards-list">
@@ -84,7 +84,7 @@ const handleCardDelete = async (event) => {
                                     <div className="row">
                                         <div className="col-auto">
                                             <Link to={`/decks/${deckId}/cards/${card.id}/edit`}><button>Edit</button></Link>
-                                            <button onClick={handleCardDelete}>Delete</button>
+                                            <button onClick={()=>handleCardDelete(card.id)}>Delete</button>
                                         </div>
                                     </div>
                                 </div>

@@ -55,7 +55,7 @@ return(
         <label className="form-label mt-3">Description</label>
         <textarea rows="4" placeholder="Brief description of the deck" className="form-control" id="description" name="description" value={newDeck.description} onChange={handleChange} type="text"/>
         <button type="button" className="btn btn-secondary" onClick={handleCancel}>Cancel</button>
-        <button type="button" className="btn btn-primary m-2">Submit</button>
+        <button type="submit button" className="btn btn-primary m-2">Submit</button>
         
 
     </form>
