@@ -61,8 +61,8 @@ const handleCancel = (event) =>{
 }
 
 
-const frontPlaceholder="Front side of card"
-const backPlaceholder="Front side of card"
+const frontPlaceholder=`Front side of card`
+const backPlaceholder=`Back side of card`
 
 return(
     <div>

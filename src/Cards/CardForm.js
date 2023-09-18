@@ -3,7 +3,7 @@ import {useState, useEffect} from "react"
 import {Link, useHistory, useParams} from "react-router-dom"
 import {readDeck, readCard, updateCard, createCard} from "../utils/api"
 
-function CardForm({card, setCard}, frontPlaceholder, backPlaceholder){
+function CardForm({card, setCard, frontPlaceholder, backPlaceholder}){
 const history=useHistory()
 const { deckId, cardId } = useParams();
 
@@ -39,7 +39,8 @@ const handleCancel = (event) =>{
 }
 
 
-
+console.log(backPlaceholder)
+console.log(frontPlaceholder)
 
 
 
