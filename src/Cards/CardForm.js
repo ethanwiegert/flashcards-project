@@ -27,7 +27,8 @@ const handleChange = ({target})=>{
             history.go(-1);} 
           else { 
             await createCard(deckId, card);
-            history.go(-1)}
+            history.go(0)
+            }
     }
 
    

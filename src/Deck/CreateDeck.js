@@ -2,6 +2,7 @@ import React from "react";
 import {useState} from "react"
 import {Link, useHistory} from "react-router-dom"
 import {createDeck} from "../utils/api"
+import DeckForm from "./DeckForm";
 
 function CreateDeck(){
 const history=useHistory()
@@ -36,7 +37,8 @@ const handleCancel = (event) =>{
 }
 
 
-
+const name="Deck Name"
+const description="Brief description of the deck"
 
 
 return(
@@ -49,16 +51,7 @@ return(
 </ol>
 </nav>
     <h2>Create Deck</h2>
-    <form onSubmit={handleSubmit}>
-        <label className="form-label">Name</label>
-        <input placeholder="Deck Name" className="form-control" id="name" name="name" value={newDeck.name} onChange={handleChange} type="text"/>
-        <label className="form-label mt-3">Description</label>
-        <textarea rows="4" placeholder="Brief description of the deck" className="form-control" id="description" name="description" value={newDeck.description} onChange={handleChange} type="text"/>
-        <button type="button" className="btn btn-secondary" onClick={handleCancel}>Cancel</button>
-        <button type="submit button" className="btn btn-primary m-2">Submit</button>
-        
-
-    </form>
+  <DeckForm deck={newDeck} setDeck={setNewDeck} name={name} description={description}/>
     </div>
 )
 

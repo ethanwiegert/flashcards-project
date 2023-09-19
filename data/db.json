@@ -19,6 +19,11 @@
       "name": "Deck Screen",
       "description": "Testing submit takes to deck screen.",
       "id": 4
+    },
+    {
+      "name": "Brand New Deck",
+      "description": "created with same form as edit",
+      "id": 5
     }
   ],
   "cards": [
@@ -64,6 +69,24 @@
       "back": "Card used for testing edit card",
       "deckId": 3,
       "id": 8
+    },
+    {
+      "front": "New Card",
+      "back": "Testing Save for new card",
+      "deckId": 3,
+      "id": 9
+    },
+    {
+      "front": "New Card",
+      "back": "Testing Save for new card",
+      "deckId": 3,
+      "id": 10
+    },
+    {
+      "front": "another card",
+      "back": "adding another card",
+      "deckId": 3,
+      "id": 11
     }
   ]
 }

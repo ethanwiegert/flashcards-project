@@ -3,7 +3,7 @@ import { Route, Switch, useRouteMatch } from "react-router-dom";
 import Header from "./Header";
 import NotFound from "./NotFound";
 import Home from "../Home/Home";
-import CreateDeck from "../Home/CreateDeck";
+import CreateDeck from "../Deck/CreateDeck";
 import ViewDeck from "../Deck/ViewDeck";
 import AddCard from "../Cards/AddCard";
 import EditCard from "../Cards/EditCard";
