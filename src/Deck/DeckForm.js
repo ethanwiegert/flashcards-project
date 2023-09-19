@@ -19,7 +19,7 @@ const handleChange = ({target})=>{
 async function handleSubmit (event) {
     event.preventDefault();
         const abortController = new AbortController();
-        if(name="Deck Name"){
+        if(name==="Deck Name"){
         await createDeck(deck, abortController.signal);
         history.push(`/decks/${deck.id}`);}
         else{
