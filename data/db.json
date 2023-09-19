@@ -12,8 +12,13 @@
     },
     {
       "name": "new deck",
-      "description": "test deck",
+      "description": "test deck edit",
       "id": 3
+    },
+    {
+      "name": "Deck Screen",
+      "description": "Testing submit takes to deck screen.",
+      "id": 4
     }
   ],
   "cards": [
@@ -55,8 +60,8 @@
       "id": 7
     },
     {
-      "front": "new card",
-      "back": "test card",
+      "front": "Added Card",
+      "back": "Card used for testing edit card",
       "deckId": 3,
       "id": 8
     }

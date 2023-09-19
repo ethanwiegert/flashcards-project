@@ -70,7 +70,7 @@ return(
 <ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="/">Home</a></li>
 <li class="breadcrumb-item"><a href={`/decks/${deck.id}`}>{deck.name}</a></li>
-<li class="breadcrumb-item active" aria-current="page">Create Deck</li>
+<li class="breadcrumb-item active" aria-current="page">Add Card</li>
 </ol>
 </nav>
     <h4>{deck.name}: Add Card</h4>

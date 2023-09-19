@@ -44,12 +44,12 @@ async function handleSubmit (event) {
     event.preventDefault();
         const abortController = new AbortController();
         await updateDeck(deck, abortController.signal);
-        history.push("/");
+        history.go(-1);
 }
 
 const handleCancel = (event) =>{
     event.preventDefault();
-    history.push("/");
+    history.go(-1);
 }
 
 
@@ -57,15 +57,23 @@ const handleCancel = (event) =>{
 
 
 return(
-    <div>
+  <div>
+  <nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/">Home</a></li>
+<li class="breadcrumb-item"><a href={`/decks/${deck.id}`}>{deck.name}</a></li>
+<li class="breadcrumb-item active" aria-current="page">Edit Deck</li>
+</ol>
+</nav>
         <h5>Edit Deck</h5>
     <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input id="name" name="name" value={deck.name} onChange={handleChange} type="text"/>
-        <label>Description</label>
-        <textarea id="description" name="description" value={deck.description} onChange={handleChange} type="text"/>
-        <button type="submit">Submit</button>
-        <button onClick={handleCancel}>Cancel</button>
+        <label className="form-label">Name</label>
+        <input id="name" name="name" value={deck.name} onChange={handleChange} type="text" className="form-control"/>
+        <label className="form-label">Description</label>
+        <textarea id="description" name="description" value={deck.description} onChange={handleChange} type="text" className="form-control"/>
+        <button onClick={handleCancel} type="button" className="btn btn-secondary">Cancel</button>
+        <button type="submit button" className="btn btn-primary m-2">Submit</button>
+       
 
     </form>
     </div>

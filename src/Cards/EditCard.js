@@ -84,6 +84,13 @@ const backPlaceholder=`${card.front}`
 
 return(
     <div>
+       <nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/">Home</a></li>
+<li class="breadcrumb-item"><a href={`/decks/${deck.id}`}>{deck.name}</a></li>
+<li class="breadcrumb-item active" aria-current="page">Edit Card {card.id}</li>
+</ol>
+</nav>
     <h5>Edit Card</h5>
     <CardForm card={card} setCard={setCard} frontPlaceholder={frontPlaceholder} backPlaceholder={backPlaceholder}/>
     </div>

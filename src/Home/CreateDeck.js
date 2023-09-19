@@ -27,7 +27,7 @@ async function handleSubmit (event) {
     event.preventDefault();
         const abortController = new AbortController();
         await createDeck(newDeck, abortController.signal);
-        history.push("/");
+        history.push(`/decks/${newDeck.id}`);
 }
 
 const handleCancel = (event) =>{
