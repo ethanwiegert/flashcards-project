@@ -1,9 +1,13 @@
 import {useEffect, useState} from "react"
-import {Link, useHistory, useParams} from "react-router-dom"
+import {Link, useHistory, useParams, useRouteMatch} from "react-router-dom"
 import {readDeck, deleteDeck, deleteCard} from "../utils/api"
 
 
 function StudyDeck(){
+
+const url=useRouteMatch()
+const history=useHistory()
+
 
   const { deckId } = useParams();
   const [deck, setDeck] = useState({ name: "Loading...", cards: [] });
@@ -38,6 +42,9 @@ function StudyDeck(){
           );
           if (result) {
             setCurrentIndex(0);
+          }
+          else{
+            history.push("/")
           }
           //if there are still cards in the deck,
           //change the state for the index, the card, and the flip
