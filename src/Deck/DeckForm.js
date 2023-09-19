@@ -20,8 +20,9 @@ async function handleSubmit (event) {
     event.preventDefault();
         const abortController = new AbortController();
         if(name==="Deck Name"){
-        await createDeck(deck, abortController.signal);
-        history.push(`/decks/${deck.id}`);}
+            const response = await createDeck(deck, abortController.signal);
+
+            history.push(`/decks/${response.id}`)}
         else{
             await updateDeck(deck, abortController.signal);
         history.go(-1);

@@ -22,8 +22,23 @@
     },
     {
       "name": "Brand New Deck",
-      "description": "created with same form as edit, now edited",
+      "description": "created with same form as edit, now edited, twice",
       "id": 5
+    },
+    {
+      "name": "another new deck",
+      "description": "testing the deck form",
+      "id": 6
+    },
+    {
+      "name": "deck",
+      "description": "testing deck submit path",
+      "id": 7
+    },
+    {
+      "name": "deck",
+      "description": "deck to test the submit path again",
+      "id": 8
     }
   ],
   "cards": [
@@ -87,6 +102,12 @@
       "back": "adding another card",
       "deckId": 3,
       "id": 11
+    },
+    {
+      "front": "new card",
+      "back": "testing card form, and edit",
+      "deckId": 6,
+      "id": 12
     }
   ]
 }
