@@ -35,30 +35,7 @@ useEffect(() => {
   }, []);
 
 
-const handleChange = ({target})=>{
-    setNewCard({
-        ...newCard,
-        [target.name]: target.value,
-    })
 
-    }
-
-
-    async function handleSubmit (event) {
-        event.preventDefault();
-        const abortController = new AbortController();
-        const response = await readDeck(deckId, abortController.signal);
-        setDeck(response);
-        setCards(response.cards);
-        await createCard(deckId, newCard);
-        history.go(-1)
-    }
-
-
-const handleCancel = (event) =>{
-    event.preventDefault();
-    history.go("-1");
-}
 
 
 const frontPlaceholder=`Front side of card`

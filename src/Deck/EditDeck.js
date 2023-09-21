@@ -32,26 +32,7 @@ useEffect(() => {
     displayDeck();
   }, []);
 
-const handleChange = ({target})=>{
-    setDeck({
-        ...deck,
-        [target.name]: target.value,
-    })
 
-    }
-
-
-async function handleSubmit (event) {
-    event.preventDefault();
-        const abortController = new AbortController();
-        await updateDeck(deck, abortController.signal);
-        history.go(-1);
-}
-
-const handleCancel = (event) =>{
-    event.preventDefault();
-    history.go(-1);
-}
 
 const name=`${deck.name}`
 const description=`${deck.description}`

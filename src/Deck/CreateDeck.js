@@ -13,28 +13,7 @@ let initialState={
 }
 
 const [newDeck, setNewDeck]=useState(initialState)
-//handleChange, handleSubmit, handleCancel
 
-const handleChange = ({target})=>{
-    setNewDeck({
-        ...newDeck,
-        [target.name]: target.value,
-    })
-
-    }
-
-
-async function handleSubmit (event) {
-    event.preventDefault();
-        const abortController = new AbortController();
-        await createDeck(newDeck, abortController.signal);
-        history.push(`/decks/${newDeck.id}`);
-}
-
-const handleCancel = (event) =>{
-    event.preventDefault();
-    history.push("/");
-}
 
 
 const name="Deck Name"

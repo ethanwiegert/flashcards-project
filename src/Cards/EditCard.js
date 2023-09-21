@@ -53,28 +53,7 @@ useEffect(() => {
   }, []);
 
 
-const handleChange = ({target})=>{
-    setCard({
-        ...card,
-        [target.name]: target.value,
-    })
 
-    }
-
-    async function handleSubmit (event) {
-        event.preventDefault();
-            const abortController = new AbortController();
-            await updateCard(card, abortController.signal);
-            history.go(-1);
-    }
-
-   
-    
-
-const handleCancel = (event) =>{
-    event.preventDefault();
-    history.go(-1);
-}
 
 
 
