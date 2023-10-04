@@ -14,6 +14,7 @@ deleteDeck(deckId)
 return (
 <button className="btn btn-danger float-right" onClick={handleDeckDelete}>
 <span className="oi oi-trash"></span>
+Delete
 </button>
 )
 }
